@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const App = () => {
   const profiles = [
-    { name: "Taro", age:"21"},
-    { name: "Yusaku", age:"27"}
+    { name: "Taro", age:1},
+    { name: "Yusaku"},
+    { name: "NoName", age:2}
   ]
+  const [count, setCount] = useState(0);
 
   return(
     <React.Fragment>
-      {
-        profiles.map((profile, index) => {
-          return <User key={index} name={profile.name} age={profile.age}/>
-        })
-      }
+      <Counter count={count} increment={() => setCount(count + 1)}/>
     </React.Fragment>
   )};
 
-const User = (props) => <div>{props.name}! {props.age} years old.</div>
+const Counter = (props) => <div onClick={props.increment}>count: {props.count}</div>
 
 export default App;
