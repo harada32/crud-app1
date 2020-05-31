@@ -1,11 +1,13 @@
 import React from 'react';
 
-function App() {
+const App = () => {
   return(
-    <div>
-      <label htmlFor="bar">bar</label>
-      <input type="text" onChange={()=> console.log("change")} />
-    </div>
+    <React.Fragment>
+      <Cat />
+      <Cat />
+    </React.Fragment>
   )};
+
+const Cat = () => <div>Meow!</div>
 
 export default App;
